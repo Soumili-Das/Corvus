@@ -20,7 +20,6 @@ app.add_middleware(
 
 @app.on_event("startup")
 async def startup_event():
-    phishing_sentry.load()
-    embedding_extractor.load()
+    pass
 
 app.include_router(api_router)
