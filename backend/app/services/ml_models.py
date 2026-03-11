@@ -4,6 +4,23 @@ from optimum.onnxruntime import ORTModelForSequenceClassification
 from sentence_transformers import SentenceTransformer
 import torch
 import numpy as np
+import time
+import functools
+
+def antigravity_layer(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        print(f"Lift-off! Executing {func.__name__}...")
+        start_time = time.time()
+        try:
+            result = func(*args, **kwargs)
+        except Exception as e:
+            print(f"Caught an error in {func.__name__}, preventing crash: {e}")
+            result = None
+        end_time = time.time()
+        print(f"Landing! {func.__name__} completed in {(end_time - start_time) * 1000:.2f} ms.")
+        return result
+    return wrapper
 
 PHISHING_MODEL_ID = "ealvaradob/bert-finetuned-phishing"
 EMBEDDING_MODEL_ID = "all-MiniLM-L6-v2"
@@ -28,6 +45,7 @@ class PhishingModel:
             self.model.save_pretrained(ONNX_MODEL_DIR)
             print("Phishing model exported to ONNX successfully.")
         
+    @antigravity_layer
     def predict(self, url: str) -> float:
         if not self.model or not self.tokenizer:
             self.load()

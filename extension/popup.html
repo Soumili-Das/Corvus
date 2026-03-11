@@ -1,197 +1,125 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Corvus</title>
-        <link rel="stylesheet" href="popup.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-            rel="stylesheet"
-        />
-    </head>
 
-    <body>
-        <div class="header">
-            <img
-                src="extensionlogo.png"
-                alt="Logo"
-                class="logo"
-                id="headerLogo"
-            />
-            <h1>Corvus Browser Companion</h1>
+<head>
+    <meta charset="UTF-8" />
+    <title>Corvus</title>
+    <link rel="stylesheet" href="popup.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="header">
+        <img src="extensionlogo.png" alt="Logo" class="logo" id="headerLogo" />
+        <h1>Corvus Browser Companion</h1>
+    </div>
+
+    <div class="cards-container">
+        <div class="feature-card antigravity-element">
+            <div class="card-header">
+                <div class="title-with-icon">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M4 6V18C4 19.1046 4.89543 20 6 20H18C19.1046 20 20 19.1046 20 18V6C20 4.89543 19.1046 4 18 4H6C4.89543 4 4 4.89543 4 6Z"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M4 10H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    <h2>Tab Organizer</h2>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="tabOrganizerToggle" checked />
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <p>
+                Automatically groups your open tabs by topic for better
+                focus.
+            </p>
+
+            <div class="category-pills">
+                <button class="pill work">Work</button>
+                <button class="pill research">Research</button>
+                <button class="pill shopping">Study</button>
+            </div>
+
+            <button id="btnOrganizeTabs" class="action-btn">
+                Organize Open Tabs
+            </button>
+            <div id="ragResults" class="results-container hidden"></div>
         </div>
 
-        <div class="cards-container">
-            <!-- Tab Organizer Card -->
-            <div class="feature-card">
-                <div class="card-header">
-                    <div class="title-with-icon">
-                        <svg
-                            class="icon"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M4 6V18C4 19.1046 4.89543 20 6 20H18C19.1046 20 20 19.1046 20 18V6C20 4.89543 19.1046 4 18 4H6C4.89543 4 4 4.89543 4 6Z"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            />
-                            <path
-                                d="M4 10H20"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            />
-                        </svg>
-                        <h2>Tab Organizer</h2>
-                    </div>
-                    <label class="toggle-switch">
-                        <input
-                            type="checkbox"
-                            id="tabOrganizerToggle"
-                            checked
-                        />
-                        <span class="slider"></span>
-                    </label>
+        <div class="feature-card antigravity-element">
+            <div class="card-header">
+                <div class="title-with-icon">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 19.5C4 18.837 4.26339 18.2011 4.73223 17.7322C5.20107 17.2634 5.83696 17 6.5 17H20"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M6.5 2H20V22H6.5C5.83696 22 5.20107 21.7366 4.73223 21.2678C4.26339 20.7989 4 20.163 4 19.5V4.5C4 3.83696 4.26339 3.20107 4.73223 2.73223C5.20107 2.26339 5.83696 2 6.5 2Z"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M16 11L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M12 7H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    <h2>Page Summarizer</h2>
                 </div>
-                <p>
-                    Automatically groups your open tabs by topic for better
-                    focus.
-                </p>
-
-                <div class="category-pills">
-                    <button class="pill work">Work</button>
-                    <button class="pill research">Research</button>
-                    <button class="pill shopping">Study</button>
-                </div>
-
-                <button id="btnOrganizeTabs" class="action-btn">
-                    Organize Open Tabs
-                </button>
-                <div id="ragResults" class="results-container hidden"></div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="pageSummarizerToggle" checked />
+                    <span class="slider"></span>
+                </label>
             </div>
 
-            <!-- Page Summarizer Card -->
-            <div class="feature-card">
-                <div class="card-header">
-                    <div class="title-with-icon">
-                        <svg
-                            class="icon"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M4 19.5C4 18.837 4.26339 18.2011 4.73223 17.7322C5.20107 17.2634 5.83696 17 6.5 17H20"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            />
-                            <path
-                                d="M6.5 2H20V22H6.5C5.83696 22 5.20107 21.7366 4.73223 21.2678C4.26339 20.7989 4 20.163 4 19.5V4.5C4 3.83696 4.26339 3.20107 4.73223 2.73223C5.20107 2.26339 5.83696 2 6.5 2Z"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            />
-                            <path
-                                d="M16 11L18 9"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            />
-                            <path
-                                d="M12 7H14"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            />
-                        </svg>
-                        <h2>Page Summarizer</h2>
-                    </div>
-                    <label class="toggle-switch">
-                        <input
-                            type="checkbox"
-                            id="pageSummarizerToggle"
-                            checked
-                        />
-                        <span class="slider"></span>
-                    </label>
+            <div class="summary-box">
+                <div class="summary-header">Current Page Summary...</div>
+                <div id="summaryResults" class="summary-content">
+                    Click "Summarize" to get an overview of the current
+                    page.
                 </div>
-
-                <div class="summary-box">
-                    <div class="summary-header">Current Page Summary...</div>
-                    <div id="summaryResults" class="summary-content">
-                        Click "Summarize" to get an overview of the current
-                        page.
-                    </div>
-                </div>
-                <button id="btnSummarize" class="action-btn">Summarize</button>
             </div>
-
-            <!-- Security & Phishing Detector Card -->
-            <div class="feature-card">
-                <div class="card-header">
-                    <div class="title-with-icon">
-                        <h2>Security & Phishing Detector</h2>
-                        <svg
-                            class="shield-icon"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M12 22S8 18 8 12V6L12 2L16 6V12C16 18 12 22 12 22Z"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            />
-                        </svg>
-                    </div>
-                    <label class="toggle-switch">
-                        <input
-                            type="checkbox"
-                            id="phishingDetectorToggle"
-                            checked
-                        />
-                        <span class="slider"></span>
-                    </label>
-                </div>
-                <p>
-                    Analyzes page characteristics for scam or phishing attempts.
-                </p>
-
-                <div class="gauge-container">
-                    <div class="gauge">
-                        <div class="gauge-dial"></div>
-                        <div class="gauge-needle" id="gaugeNeedle"></div>
-                    </div>
-                    <div class="gauge-info">
-                        <div class="gauge-label">Phishing Probability:</div>
-                        <div class="gauge-value" id="phishingProbabilityLabel">
-                            0% - Analyzing...
-                        </div>
-                    </div>
-                </div>
-
-                <div
-                    id="phishingDetails"
-                    class="results-container hidden"
-                ></div>
-                <button id="btnForceScan" class="action-btn">Scan Now</button>
-            </div>
+            <button id="btnSummarize" class="action-btn">Summarize</button>
         </div>
 
-        <script src="popup.js"></script>
-    </body>
+        <div class="feature-card antigravity-element">
+            <div class="card-header">
+                <div class="title-with-icon">
+                    <h2>Security & Phishing Detector</h2>
+                    <svg class="shield-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 22S8 18 8 12V6L12 2L16 6V12C16 18 12 22 12 22Z" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="phishingDetectorToggle" checked />
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <p>
+                Analyzes page characteristics for scam or phishing attempts.
+            </p>
+
+            <div class="gauge-container">
+                <div class="gauge">
+                    <div class="gauge-dial"></div>
+                    <div class="gauge-needle" id="gaugeNeedle"></div>
+                </div>
+                <div class="gauge-info">
+                    <div class="gauge-label">Phishing Probability:</div>
+                    <div class="gauge-value" id="phishingProbabilityLabel">
+                        0% - Analyzing...
+                    </div>
+                </div>
+            </div>
+
+            <div id="phishingDetails" class="results-container hidden"></div>
+            <button id="btnForceScan" class="action-btn">Scan Now</button>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
 </html>

@@ -1,6 +1,6 @@
 :root {
     --bg-color: #f3f4f6;
-    /* Will be overridden by body, this is fallback */
+    
     --text-main: #f8fafc;
     --text-muted: #94a3b8;
     --accent-cyan: #2dd4bf;
@@ -25,7 +25,7 @@ body {
     overflow-y: auto;
 }
 
-/* Header */
+
 .header {
     display: flex;
     align-items: center;
@@ -52,7 +52,7 @@ h1 {
     font-weight: 600;
 }
 
-/* Cards Container */
+
 .cards-container {
     padding: 16px;
     display: flex;
@@ -60,7 +60,7 @@ h1 {
     gap: 16px;
 }
 
-/* Feature Card */
+
 .feature-card {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
@@ -123,7 +123,7 @@ p {
     margin: 0 0 16px 0;
 }
 
-/* Toggle Switch */
+
 .toggle-switch {
     position: relative;
     display: inline-block;
@@ -176,7 +176,7 @@ input:checked+.slider:before {
     transform: translateX(20px);
 }
 
-/* Action Buttons */
+
 .action-btn {
     width: 100%;
     padding: 10px;
@@ -200,7 +200,7 @@ input:checked+.slider:before {
     transform: translateY(0);
 }
 
-/* Category Pills */
+
 .category-pills {
     display: flex;
     gap: 8px;
@@ -234,7 +234,7 @@ input:checked+.slider:before {
     background: rgba(239, 68, 68, 0.1);
 }
 
-/* Summary Box */
+
 .summary-box {
     background: rgba(0, 0, 0, 0.2);
     border: 1px solid var(--card-border);
@@ -256,7 +256,7 @@ input:checked+.slider:before {
     min-height: 40px;
 }
 
-/* Gauge styling */
+
 .gauge-container {
     display: flex;
     align-items: center;
@@ -305,7 +305,7 @@ input:checked+.slider:before {
     background: white;
     transform-origin: bottom center;
     transform: translateX(-50%) rotate(-90deg);
-    /* -90deg is 0%, 90deg is 100% */
+    
     border-radius: 2px 2px 0 0;
     z-index: 2;
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -327,7 +327,7 @@ input:checked+.slider:before {
     margin-top: 4px;
 }
 
-/* Results Container (Hidden by default) */
+
 .results-container {
     margin-top: 12px;
     padding: 10px;
@@ -343,7 +343,7 @@ input:checked+.slider:before {
     display: none;
 }
 
-/* Scrollbar */
+
 ::-webkit-scrollbar {
     width: 6px;
 }
@@ -359,4 +359,32 @@ input:checked+.slider:before {
 
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.3);
+}
+
+
+.antigravity-element {
+    animation: float-zero-g 4s ease-in-out infinite;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.antigravity-element:hover {
+    animation-play-state: paused;
+    transform: scale(0.98);
+}
+
+@keyframes float-zero-g {
+    0% {
+        transform: translateY(0);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    50% {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    100% {
+        transform: translateY(0);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
 }

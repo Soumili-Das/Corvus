@@ -11,6 +11,22 @@ async function checkRisk(url) {
   return data.risk_score;
 }
 
+checkRisk = new Proxy(checkRisk, {
+  apply: async function (target, thisArg, argumentsList) {
+    console.log(`Lift-off! Intercepting call to ${target.name}...`);
+    const start = performance.now();
+    try {
+      const result = await Reflect.apply(target, thisArg, argumentsList);
+      const end = performance.now();
+      console.log(`Landing! ${target.name} executed in ${(end - start).toFixed(2)} ms.`);
+      return result;
+    } catch (e) {
+      console.error(`Error in ${target.name}:`, e);
+      throw e;
+    }
+  }
+});
+
 async function organizeTabs(payload) {
   const res = await fetch(`${BACKEND_URL}/organize`, {
     method: "POST",
