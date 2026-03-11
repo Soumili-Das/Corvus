@@ -1,0 +1,60 @@
+# Environments
+.env
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Node
+node_modules/
+package-lock.json
+
+# IDEs
+.idea/
+.vscode/
+
+# Ignore hugging face exported ONNX models since they are downloaded
+onnx_phishing_model/
+
+# Misc
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Sensitive files
+*.pem
+*.key
+*.cert
+*.crt
+*.pfx
+*.p12
+*.jks
+secrets.json
+credentials.json
+client_secret.json
+*-secret.json
+*.sqlite3
+*.db
+*.log
+.env.*
+*.bak
+*.swp
+*~
+.netrc
+.pgpass
+config.json
+local_settings.py
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/

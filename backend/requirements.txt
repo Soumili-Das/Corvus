@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+transformers
+optimum[onnxruntime]
+chromadb
+sentence-transformers
+google-genai
+python-dotenv
+pydantic
